@@ -2,10 +2,70 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <script src="script.js"></script>
-        <title>Cool Ass Rock Paper Scissors Game</title>
+        <script src="script.js" defer></script>
+        <title>Rock Paper Scissors Game</title>
+
+        <style>
+            .played {
+                display: flex;
+            }
+            #container, .display {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            body {
+                background-color: darkslategray;
+                color: white;
+                font-family: 'Gill Sans';
+            }
+            body.wonGame {
+                animation: wonGame 1s ease-in-out 2 alternate;
+            }
+            body.lostGame {
+                animation: lostGame 1s ease-in-out 2 alternate;
+            }
+            .played, .score {
+                display: flex;
+                gap: 16px;
+                align-items: center;
+            }
+            .score span {
+                font-size: 2rem;
+            }
+            .played span {
+                position: absolute;
+                transform: translateX(-2rem);
+            }
+
+            @keyframes wonGame {
+                from {background-color: darkslategray;}
+                to {background-color: green;}
+            }
+            @keyframes lostGame {
+                from {background-color: darkslategray;}
+                to {background-color: red;}
+            }
+        </style>
     </head>
     <body>
-        <h3>You kinda have to open the console to see what's going on..</h3>
+        <h3>This is Rock, Paper, Scissors</h3>
+        <div id="container">
+            <div class="display">
+                <h4 class="round-outcome">Play!</h5>
+                <h3 class="game-outcome">Good luck!</h3>
+                <div class="score">
+                    <span class="human-score">0</span><span class="computer-score">0</span>
+                </div>
+                <div class="played">
+                    <span>You:</span><h1 class="human-played">✂️</h1><h1 class="computer-played">🪨</h1>
+                </div>
+            </div>
+            <div class="controls">
+                <button data-choice="rock"><label>Rock</label></button>
+                <button data-choice="paper"><label>Paper</label></button>
+                <button data-choice="scissors"><label>Scissors</label></button>
+            </div>
+        </div>
     </body>
 </html>
